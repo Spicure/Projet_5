@@ -20,6 +20,8 @@ const slides = [
 
 const arrowLeft = document.querySelector(".arrow_left");
 const arrowRight = document.querySelector(".arrow_right");
+const dots = document.querySelector(".dots");
+let slidesOrder = 0;
 
 arrowLeft.addEventListener("click", () => {
   console.log("c'est la flèche de gauche");
@@ -28,3 +30,13 @@ arrowLeft.addEventListener("click", () => {
 arrowRight.addEventListener("click", () => {
   console.log("c'est la flèche de droite");
 });
+
+for (let i = 0; i < slides.length; i++) {
+  let dot = document.createElement("div");
+  dot.classList.add("dot");
+  dots.appendChild(dot);
+
+  if (i === slidesOrder) {
+    dot.classList.add("dot_selected");
+  }
+}
