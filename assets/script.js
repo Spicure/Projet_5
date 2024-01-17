@@ -26,7 +26,11 @@ const banner = document.querySelector(".banner-img");
 const tagLine = document.querySelector("#banner p");
 
 arrowLeft.addEventListener("click", () => {
-  slidesOrder--;
+  if (slidesOrder === 0) {
+    slidesOrder = slides.length - 1;
+  } else {
+    slidesOrder--;
+  }
   banner.src = `./assets/images/slideshow/${slides[slidesOrder].image}`;
   tagLine.innerHTML = slides[slidesOrder].tagLine;
 
@@ -41,7 +45,11 @@ arrowLeft.addEventListener("click", () => {
 });
 
 arrowRight.addEventListener("click", () => {
-  slidesOrder++;
+  if (slidesOrder === slides.length - 1) {
+    slidesOrder = 0;
+  } else {
+    slidesOrder++;
+  }
   banner.src = `./assets/images/slideshow/${slides[slidesOrder].image}`;
   tagLine.innerHTML = slides[slidesOrder].tagLine;
 
