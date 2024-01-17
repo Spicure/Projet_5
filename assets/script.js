@@ -31,17 +31,7 @@ arrowLeft.addEventListener("click", () => {
   } else {
     slidesOrder--;
   }
-  banner.src = `./assets/images/slideshow/${slides[slidesOrder].image}`;
-  tagLine.innerHTML = slides[slidesOrder].tagLine;
-
-  for (let i = 0; i < slides.length; i++) {
-    let dot = document.getElementsByClassName("dot")[i];
-    if (i === slidesOrder) {
-      dot.classList.add("dot_selected");
-    } else {
-      dot.classList.remove("dot_selected");
-    }
-  }
+  updateSlideAndDotSelectedClass();
 });
 
 arrowRight.addEventListener("click", () => {
@@ -50,17 +40,7 @@ arrowRight.addEventListener("click", () => {
   } else {
     slidesOrder++;
   }
-  banner.src = `./assets/images/slideshow/${slides[slidesOrder].image}`;
-  tagLine.innerHTML = slides[slidesOrder].tagLine;
-
-  for (let i = 0; i < slides.length; i++) {
-    let dot = document.getElementsByClassName("dot")[i];
-    if (i === slidesOrder) {
-      dot.classList.add("dot_selected");
-    } else {
-      dot.classList.remove("dot_selected");
-    }
-  }
+  updateSlideAndDotSelectedClass();
 });
 
 for (let i = 0; i < slides.length; i++) {
@@ -70,5 +50,19 @@ for (let i = 0; i < slides.length; i++) {
 
   if (i === slidesOrder) {
     dot.classList.add("dot_selected");
+  }
+}
+
+function updateSlideAndDotSelectedClass() {
+  banner.src = `./assets/images/slideshow/${slides[slidesOrder].image}`;
+  tagLine.innerHTML = slides[slidesOrder].tagLine;
+
+  for (let i = 0; i < slides.length; i++) {
+    let dot = document.getElementsByClassName("dot")[i];
+    if (i === slidesOrder) {
+      dot.classList.add("dot_selected");
+    } else {
+      dot.classList.remove("dot_selected");
+    }
   }
 }
