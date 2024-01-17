@@ -22,13 +22,37 @@ const arrowLeft = document.querySelector(".arrow_left");
 const arrowRight = document.querySelector(".arrow_right");
 const dots = document.querySelector(".dots");
 let slidesOrder = 0;
+const banner = document.querySelector(".banner-img");
+const tagLine = document.querySelector("#banner p");
 
 arrowLeft.addEventListener("click", () => {
-  console.log("c'est la flèche de gauche");
+  slidesOrder--;
+  banner.src = `./assets/images/slideshow/${slides[slidesOrder].image}`;
+  tagLine.innerHTML = slides[slidesOrder].tagLine;
+
+  for (let i = 0; i < slides.length; i++) {
+    let dot = document.getElementsByClassName("dot")[i];
+    if (i === slidesOrder) {
+      dot.classList.add("dot_selected");
+    } else {
+      dot.classList.remove("dot_selected");
+    }
+  }
 });
 
 arrowRight.addEventListener("click", () => {
-  console.log("c'est la flèche de droite");
+  slidesOrder++;
+  banner.src = `./assets/images/slideshow/${slides[slidesOrder].image}`;
+  tagLine.innerHTML = slides[slidesOrder].tagLine;
+
+  for (let i = 0; i < slides.length; i++) {
+    let dot = document.getElementsByClassName("dot")[i];
+    if (i === slidesOrder) {
+      dot.classList.add("dot_selected");
+    } else {
+      dot.classList.remove("dot_selected");
+    }
+  }
 });
 
 for (let i = 0; i < slides.length; i++) {
